@@ -1,5 +1,7 @@
 const getOpeningHours = require('../src/getOpeningHours');
 
 describe('Testes da função getOpeningHours', () => {
-  expect().tobe();
+  it('Verifica se ao receber um array vazio a função `average` retorna `undefined`', () => {
+    expect().toBe();
+  });
 });
