@@ -1,9 +1,9 @@
 const data = require("../data/zoo_data");
 
-function getAnimalsOlderThan(especie, idade) {
+function getAnimalsOlderThan(animals, age) {
   return data.species
-    .find((animal) => animal.name === especie)
-    .residents.every((resident) => resident.age >= idade);
+    .find((animal) => animal.name === animals)
+    .residents.every((resident) => resident.age >= age);
 }
 
 module.exports = getAnimalsOlderThan;
