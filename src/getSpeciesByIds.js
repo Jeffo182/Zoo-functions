@@ -1,4 +1,4 @@
-const data = require("../data/zoo_data");
+const data = require('../data/zoo_data');
 
 function getSpeciesByIds(...ids) {
   const specieId = ids.map((idDoMap) =>
@@ -6,5 +6,4 @@ function getSpeciesByIds(...ids) {
 
   return specieId;
 }
-
 module.exports = getSpeciesByIds;
