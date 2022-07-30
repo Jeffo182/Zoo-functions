@@ -27,5 +27,5 @@ function countAnimals(animal) {
   }
   return animalSelecionado.residents.length;
 }
-console.log(countAnimals({ specie: 'bears', sex: 'female' }));
+
 module.exports = countAnimals;
