@@ -1,8 +1,31 @@
 const data = require('../data/zoo_data');
 
-function countAnimals(...animal) {
-  const animaTeste = data.species.find((especie) => especie.name.includes(animal));
-  console.log(animaTeste);
+const selectAnimalBySex = (getAnimal, animal) => {
+  const selectAnimal = getAnimal.residents.filter((resident) => resident.sex === animal.sex);
+  return selectAnimal.length;
+};
+
+const selectAnimalByname = (animal) => data.species.find((specie) => specie.name === animal.specie);
+
+// eslint-disable-next-line max-len
+
+function countAnimals(animal) {
+  if (!animal) {
+    const animals = {};
+    data.species.forEach(({ name, residents }) => { animals[name] = residents.length; });
+    return animals;
+  }
+  if (!animal.sex) {
+    const { specie } = animal;
+    const animals = {};
+    data.species.forEach(({ name, residents }) => { animals[name] = residents.length; });
+    return animals[specie];
+  }
+  const animalSelecionado = selectAnimalByname(animal);
+  if (animal.sex) {
+    return selectAnimalBySex(animalSelecionado, animal);
+  }
+  return animalSelecionado.residents.length;
 }
-countAnimals('lions', 'tigers');
+console.log(countAnimals({ specie: 'bears', sex: 'female' }));
 module.exports = countAnimals;

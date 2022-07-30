@@ -21,5 +21,7 @@ describe('Testes da função getOpeningHours', () => {
     expect(() => getOpeningHours('Sunday', '09:c0-AM')).toThrow('The minutes should represent a number');
     expect(() => getOpeningHours('Monday', '13:00-AM')).toThrow('The hour must be between 0 and 12');
     expect(() => getOpeningHours('Tuesday', '09:60-AM')).toThrow('The minutes must be between 0 and 59');
+    expect(getOpeningHours('Tuesday', '12:12-AM')).toBe(zooClosed);
+    expect(() => getOpeningHours(12, '12:12-AM')).toThrow('Cannot read properties of undefined (reading \'toUpperCase\')');
   });
 });
