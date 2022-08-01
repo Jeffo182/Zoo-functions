@@ -22,7 +22,7 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  if (!entrants || Object.keys(entrants).length === 0 || entrants === undefined) {
+  if (!entrants || Object.keys(entrants).length === 0) {
     return 0;
   }
   const totalEntradas = countEntrants(entrants);
